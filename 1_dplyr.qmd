@@ -46,13 +46,13 @@ However, not all of these packages are loaded when we use the `library("tidyvers
 
 The `Tidyverse` is built around the basic concept that data in a table should have one observation per row, one variable per column, and only one value per cell. 
 
-![](doc/tidy_data_Horst.jpg){width=60%}
+![](doc/tidy_data_Horst.jpg){width=80%}
 
 ***
 
 Once data is in this 'tidy' format, it can be transformed, visualized and modelled for an analysis. This is depicted in Hadley Wickham's famous flow chart:
 
-![](doc/Data_wrangling.png){width=80%}
+![](doc/Data_wrangling.png){}
 
 When using functions in the `Tidyverse` ecosystem, most data is returned as a `tibble` object. `Tibbles` are very similar to the `data.frames` we were working with earlier, and it is perfectly fine to use `Tidyverse` functions on a `data.frame` object. Just be aware that in most cases, the `Tidyverse` function will transform your data into a `tibble.` If you are unobservant, you won't even notice a difference. However, there are a few differences between the two flat data types, most of which are just designed to make your life easier. The most obvious differences when you work with `tibbles`:
 
@@ -240,6 +240,7 @@ species_sex_mean_mass = penguins %>%
 # Save the table
 write_csv(x=species_sex_mean_mass, file="data/processed/peguin_mean_body_mass_g.csv")
 
+# Read that table back in to check it
 temp = read_csv("data/processed/peguin_mean_body_mass_g.csv")
 head(temp)
 ```
@@ -275,7 +276,8 @@ n_by_species = penguins %>%
   group_by(species) %>%
   summarize(n = n()) 
 
-# Use mutate() to convert body mass units:
+# Use mutate() to change a column or create a new column
+# We'll convert body mass units:
 penguins_for_america = penguins %>%
   mutate(body_mass_lb = body_mass_g * 0.0022) # 0.0022 lb/g
 
@@ -314,11 +316,11 @@ The official (recommended, not required) text assigned for this class is R for D
 
 <https://r4ds.hadley.nz/>
 
-Since Hadley is the developer of the `Tidyvserse` suite of packages, his text is a great resource for learning more about `dplyr.`
+Since Hadley is the developer of the `Tidyverse` suite of packages, his text is a great resource for learning more about `dplyr.`
 
 ### Acknowledgements
 
-Dr. Allison Horst at the Bren School at UC Santa Barbara is one of the masterminds of the `palmerpenguins` R package. She has created a lot of R training content that has been inspirational here and other places throughout the course. She hosts a great website and lots of content on GitHub that is worth perusing if you are interested in diving deeper into data science in R:
+Dr. Allison Horst was at the Bren School at UC Santa Barbara at the same time I was a postdoc there, and she is one of the masterminds of the `palmerpenguins` R package. She has created a lot of R training content that has been inspirational here and other places throughout the course. She hosts a great website and lots of content on GitHub that is worth perusing if you are interested in diving deeper into data science in R:
 
 <https://allisonhorst.github.io/>
 
@@ -327,4 +329,3 @@ Allison's data science-themed artwork is especially unique and inspirational:
 <https://github.com/allisonhorst/stats-illustrations>
 
 <https://allisonhorst.com/>
-
