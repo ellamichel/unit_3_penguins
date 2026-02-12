@@ -5,6 +5,8 @@ format:
     embed-resources: true
 ---
 
+Ella wuz here
+
 ```{r}
 #| include: false
 knitr::opts_chunk$set(fig.width=6, fig.asp = 0.618, collapse=TRUE) 
